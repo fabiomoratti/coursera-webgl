@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 
 <html>
-</
-<html>
 <head>
-    <title>Square example - week 2</title>
+    <title>First Assignment - Twist</title>
 
     <!-- Import utilities -->
     <script type="text/javascript" src="../common/webgl-utils.js"></script>
@@ -12,32 +10,37 @@
     <script type="text/javascript" src="../common/MV.js"></script>
 
     <!-- Import application file -->
-    <script type="text/javascript" src="square.js"></script>
+    <script type="text/javascript" src="twist.js"></script>
 
     <!-- Define vertex shader -->
     <script id="vertex-shader" type="x-shader/x-vertex">
-	
-	// vertex position from application
-	attribute vec4 vPosition;
-	void main(){
-		gl_Position = vPosition;
-	}
+
+    // vertex position from application
+    attribute vec4 vPosition;
+    void main(){
+        gl_Position = vPosition;
+    }
 
     </script>
 
     <!-- Define fragment shader -->
     <script id="fragment-shader" type="x-shader/x-fragment">
-	precision mediump float;
-	void main(){
-		gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-	}
+    precision mediump float;
+    void main(){
+        gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    }
 
     </script>
 
 
 </head>
 <body>
-<h1>Square example - week 2</h1>
+<h1>First Assignment - Twist</h1>
+
+<form id="form">
+Number of subdivision: <input id="num-subdivisions" type="range" min="1" max="6" value="2"/> [<label id="num-subdivisions-label">2</label>]
+<p/>
+</form>
 <canvas id="gl-canvas" width="512" height="512">
     Your browser does non support the HTML5 canvas, go get a better browser!
 </canvas>
