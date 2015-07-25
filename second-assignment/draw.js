@@ -18,6 +18,7 @@ var drawingLine = [];
 var bufferId;
 var bufferId_1;
 
+var p;
 
 window.onload = function init() {
     canvas = document.getElementById("gl-canvas");
@@ -32,7 +33,7 @@ window.onload = function init() {
 
         console.log("Mouse down event!");
         mode = 'drawing';
-        
+
 
     });
 
@@ -45,19 +46,30 @@ window.onload = function init() {
         numIndices[numCurves] = 0;
         start[numCurves] = index;
 
+        //drawingLine = [];
+        /*
+        drawingLine.push(vec2(-0.5, -0.5));
+        drawingLine.push(vec2(0.5, -0.5));
+        drawingLine.push(vec2(0.5, 0.5));
+        drawingLine.push(vec2(-0.5, 0.5));
+        gl.bindBuffer(gl.ARRAY_BUFFER, bufferId_1);
+        gl.bufferData(gl.ARRAY_BUFFER, flatten(drawingLine), gl.STATIC_DRAW);
+*/
+
         render();
 
     });
 
     canvas.addEventListener("mousemove", function (event) {
         console.log("Mouse move event! - X: ");
-        var p;
+
         if (mode == 'drawing') {
             p = transformation(event.layerX, event.layerY);
             drawingLine.push(p);
 
             gl.bindBuffer(gl.ARRAY_BUFFER, bufferId_1);
             gl.bufferData(gl.ARRAY_BUFFER, flatten(drawingLine), gl.STATIC_DRAW);
+            //gl.bufferSubData(gl.ARRAY_BUFFER, 0, flatten(drawingLine));
 
             gl.bindBuffer(gl.ARRAY_BUFFER, bufferId);
             gl.bufferSubData(gl.ARRAY_BUFFER, 8 * index, flatten(p));
@@ -87,6 +99,7 @@ window.onload = function init() {
 
     bufferId_1 = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, bufferId_1);
+    gl.bufferData(gl.ARRAY_BUFFER, 8 * maxNumVertices, gl.STATIC_DRAW);
 
     // associate shader variables with JS variables
     var vPosition = gl.getAttribLocation(program, "vPosition");
