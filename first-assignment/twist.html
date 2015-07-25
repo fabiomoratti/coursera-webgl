@@ -23,6 +23,8 @@
 
 
 
+
+
     </script>
 
     <!-- Define fragment shader -->
@@ -34,12 +36,25 @@
 
 
 
+
+
     </script>
 
 
 </head>
 <body>
 <h1>First Assignment - Twist</h1>
+
+<div>
+    Use the sliders to:
+    <ul>
+        <li>Modify interactively the number of subdivision - subdivisions are computed recursively</li>
+        <li>Modify interactively the rotation of the triangle</li>
+        <li>Modify interactively the twist coefficient. To obtain a twist the theta rotation angle is multiplied by
+        the distance from the origin sqrt(x*x + y*y) and by a twist coefficient</li>
+    </ul>
+
+</div>
 
 <form id="form">
     <div>
@@ -56,6 +71,7 @@
     </div>
 
 </form>
+<p/>
 <canvas id="gl-canvas" width="512" height="512">
     Your browser does non support the HTML5 canvas, go get a better browser!
 </canvas>

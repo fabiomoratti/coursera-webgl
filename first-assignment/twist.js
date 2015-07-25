@@ -48,7 +48,7 @@ window.onload = function init() {
 
         render();
     };
-    
+
     computeGeometry();
 
     // configure WebGL
