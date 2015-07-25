@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Second assignment - Drawing application</title>
+
+    <!-- Import utilities -->
+    <script type="text/javascript" src="../common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../common/initShaders.js"></script>
+    <script type="text/javascript" src="../common/MV.js"></script>
+
+    <!-- Import application file -->
+    <script type="text/javascript" src="draw.js"></script>
+
+    <!-- Define vertex shader -->
+    <script id="vertex-shader" type="x-shader/x-vertex">
+    // vertex position from application
+    attribute vec4 vPosition;
+    void main(){
+        gl_Position = vPosition;
+    }
+
+
+
+
+    </script>
+
+    <!-- Define fragment shader -->
+    <script id="fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+    void main(){
+        gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    }
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+<h1>Second assignment - Drawing application</h1>
+
+<div>
+    Select the color
+    <form id="form">
+        <ul>
+            <li><input type="radio" id="white-color" name="white" checked/><label for="white-color">White</label></li>
+            <li><input type="radio" id="red-color" name="red"/><label for="red-color">Red</label></li>
+            <li><input type="radio" id="blue-color" name="blue"/><label for="blue-color">Blue</label></li>
+        </ul>
+    </form>
+
+</div>
+<p></p>
+
+<div>
+    <canvas id="gl-canvas" width="512" height="512">
+        Your browser does non support the HTML5 canvas, go get a better browser!
+    </canvas>
+</div>
+</body>
+</html>
